@@ -1,8 +1,8 @@
 import "@rainbow-me/rainbowkit/styles.css" ;
 import "../styles/globals.css";
-import { configureChains } from "wagmi";
+import { chain, WagmiConfig, configureChains } from "wagmi";
 import { publicProvider} from "wagni/providers/public";
-import { getDefaultWallets } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { createClient } from "viem";
 
 //Chains we are going to support
