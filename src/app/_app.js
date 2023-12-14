@@ -1,7 +1,7 @@
 import "@rainbow-me/rainbowkit/styles.css" ;
 import "../styles/globals.css";
 import { chain, WagmiConfig, configureChains } from "wagmi";
-import { publicProvider} from "wagni/providers/public";
+import { publicProvider} from "wagmi/providers/public";
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { createClient } from "viem";
 
@@ -10,7 +10,7 @@ import { createClient } from "viem";
 //wagmiclient
 
 const {chains, provider} = configureChains([
-  chain.mainnet, chain.sepolia
+  chain.mainnet, chain.goerli
 ], [publicProvider()]);
 
 const { connectors } = getDefaultWallets({
@@ -18,7 +18,7 @@ const { connectors } = getDefaultWallets({
   chains,
 });
 
-const wagmiclient = createClient({
+const wagmiClient = createClient({
   autoConnect: true,
   connectors,
   provider,
