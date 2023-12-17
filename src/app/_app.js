@@ -1,17 +1,22 @@
 import "@rainbow-me/rainbowkit/styles.css" ;
-import "../styles/globals.css";
-import { chain, WagmiConfig, configureChains } from "wagmi";
-import { publicProvider} from "wagmi/providers/public";
+import "./globals.css";
+import { WagmiConfig, configureChains } from "wagmi";
+import { publicProvider } from 'wagmi/providers/public';
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { createClient } from "viem";
+import { mainnet, goerli } from 'viem/chains';
+
+
+
 
 //Chains we are going to support
 //"Connectors" for these chains
 //wagmiclient
 
-const {chains, provider} = configureChains([
-  chain.mainnet, chain.goerli
-], [publicProvider()]);
+const {chains, provider} = configureChains(
+  [mainnet, goerli], 
+  [publicProvider()]
+);
 
 const { connectors } = getDefaultWallets({
   appName: "dblog",
@@ -32,6 +37,6 @@ function MyApp({ Component, pageProps }) {
       </RainbowKitProvider>
     </WagmiConfig>   
   );
-}
+};
 
 export default MyApp
